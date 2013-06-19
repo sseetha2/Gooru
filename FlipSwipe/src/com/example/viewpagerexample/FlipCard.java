@@ -27,7 +27,9 @@ public class FlipCard extends FragmentActivity{
     static WebView prevWebview;
     static WebView webview;
     List<String> urlList = new ArrayList<String>();
-    String url;
+    List<String> strAssetUriList = new ArrayList<String>();
+    List<String> strFolderList = new ArrayList<String>();
+    
     
     /** Called when the activity is first created. */
     @Override
@@ -62,6 +64,8 @@ public class FlipCard extends FragmentActivity{
         public Fragment getItem(int position) {
      
         		String url = urlList.get(position);
+        		String strAssetUri = strAssetUriList.get(position);
+        		String strFolder = strFolderList.get(position);
         		Log.i("url", url);
         		if(url.contains("youtube")){
             	Uri uri = Uri.parse(urlList.get(position));
@@ -72,10 +76,14 @@ public class FlipCard extends FragmentActivity{
         		}
         		else if(url.contains("pdf")){
         		
-        			return new DetailFragment("<iframe src='http://docs.google.com/viewer?" +
-                			"url=http://www.naeyc.org/store/files/store/TOC/160.pdf&embedded=true' "+ 
+        			return new DetailFragment("<iframe src='http://docs.google.com/viewer?embedded=true&" +
+                			"url="+ strAssetUri + strFolder + url+"' "+ 
                 			"width='100%' height='100%' " + 
     	              		"style='border: none;'></iframe>");
+//        			return new DetailFragment("<iframe src='http://docs.google.com/viewer?" +
+//                			"url=http://www.naeyc.org/store/files/store/TOC/160.pdf&embedded=true' "+ 
+//                			"width='100%' height='100%' " + 
+//    	              		"style='border: none;'></iframe>");
         		}
         		else{
         		return new DetailFragment(url);
@@ -156,8 +164,12 @@ private class getResources extends AsyncTask<Void, String, String> {
 						for(int i=0;i<size;i++){
 							
 							JSONObject obj = searchResults.getJSONObject(i);
-							url = obj.getString("url");
+							String url = obj.getString("url");
+							String strAssetUri = obj.getString("assetURI");
+							String strFolder = obj.getString("folder");
 							urlList.add(url);
+							strAssetUriList.add(strAssetUri);
+							strFolderList.add(strFolder);
 //							Log.i("urlList", urlList.get(0));
 						}	
 						
