@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FlipCard</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	<string name="collection_title">Collection Title</string>
+	<string name="back_text">Text To Remember</string>
+	<string name="button_text">Flip</string>
+	<string name="share_content">Share Image</string>
+	<string name="narration_content">Narration Image</string>
+	<string name="navigation_content">Navigation Image</string>
+	<string name="like_content">Like Image</string>
+	<string name="dislike_content">Dislike Image</string>
+	
+</resources>

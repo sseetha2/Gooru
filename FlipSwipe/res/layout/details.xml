@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+  <RelativeLayout
+      android:id="@+id/bottom_view"
+      android:layout_width="fill_parent"
+      android:layout_height="150dp"
+      android:layout_above="@+id/viewFlipper"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentTop="true"
+      android:background="@drawable/navbar" >
+      
+      		<TextView
+               android:id="@+id/collection_title"
+               android:layout_width="wrap_content"
+		       android:layout_height="wrap_content"
+		       android:layout_alignParentLeft="true"
+		       android:layout_centerVertical="true"
+		       android:text="@string/collection_title"
+		       android:textColor="#FFFFFF"
+		       android:fontFamily="arial"
+		       android:textSize="20dp" ></TextView>
+      		
+      		<ImageView
+			    android:id="@+id/like"
+			    android:layout_width="40dp"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentTop="true"
+			    android:layout_toRightOf="@+id/collection_title"
+			    android:src="@drawable/like" 
+			    android:contentDescription="@string/like_content"/>
+      		
+      		<ImageView
+			    android:id="@+id/dislike"
+			    android:layout_width="40dp"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentTop="true"
+			    android:layout_toRightOf="@+id/like"
+			    android:src="@drawable/dislike" 
+			    android:contentDescription="@string/dislike_content"/>
+			
+
+			<!-- <TextView
+			    android:id="@+id/share_title"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/share"
+			    android:layout_alignParentBottom="true"
+			    android:layout_alignStart="@+id/share"
+			    android:fontFamily="arial"
+			    android:text="share"
+			    android:textColor="#FFFFFF"
+			    android:textSize="15dp" /> -->
+			
+			<ImageView
+			    android:id="@+id/share"
+			    android:layout_width="50dp"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentTop="true"
+			    android:layout_toLeftOf="@+id/narration"
+			    android:src="@drawable/share_normal"
+			    android:contentDescription="@string/share_content" />
+
+			
+			<ImageView
+			    android:id="@+id/narration"
+			    android:layout_width="50dp"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentTop="true"
+			    android:layout_toLeftOf="@+id/navigation"
+			    android:src="@drawable/narration_normal"
+			    android:contentDescription="@string/narration_content" />
+			
+			<!-- <TextView
+			    android:id="@+id/narration_title"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/narration"
+			    android:layout_alignParentBottom="true"
+			    android:layout_alignStart="@+id/narration"
+			    android:fontFamily="arial"
+			    android:text="narration"
+			    android:textColor="#FFFFFF"
+			    android:textSize="15dp" />
+			 -->
+			
+			<ImageView
+			    android:id="@+id/navigation"
+			    android:layout_width="50dp"
+			    android:layout_height="match_parent"
+			    android:layout_alignParentTop="true"
+			    android:layout_alignParentRight="true"
+			    android:layout_centerVertical="true"
+			    android:src="@drawable/navigation_normal" 
+			    android:contentDescription="@string/navigation_content"/>
+			
+			<!--  <TextView
+			    android:id="@+id/navigation_title"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignParentBottom="true"
+			    android:layout_alignStart="@+id/navigation"
+			    android:fontFamily="arial"
+			    android:text="navigation"
+			    android:textColor="#FFFFFF"
+			    android:textSize="10dp" />-->
+			
+  		   
+  </RelativeLayout>
+    <ViewFlipper
+        android:id="@+id/viewFlipper"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:addStatesFromChildren="true"
+        android:gravity="center" >
+                       
+               	<RelativeLayout
+               	    android:id="@+id/front"
+               	    android:layout_width="fill_parent"
+               	    android:layout_height="590dp"
+               	    android:gravity="top" >
+						
+						 <WebView
+						     android:id="@+id/webview"
+						     android:layout_width="fill_parent"
+						     android:layout_height="fill_parent"
+						     android:layout_alignParentLeft="true"
+						     android:layout_alignParentRight="true" />
+						
+               	</RelativeLayout>
+               	
+                 <RelativeLayout
+               	    android:id="@+id/back"
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:gravity="top" >
+		                 
+		                 <TextView
+		                     android:id="@+id/narration_text"
+		                     android:layout_width="wrap_content"
+		                     android:layout_height="wrap_content"
+		                     android:layout_centerInParent="true"
+		                     android:text="@string/back_text"
+		                     android:textColor="#FF0000"
+		                     android:textSize="50sp" >
+
+						 </TextView>
+				 </RelativeLayout>
+        </ViewFlipper>
+        			<Button
+        			    android:id="@+id/flip"
+        			    android:layout_width="wrap_content"
+        			    android:layout_height="wrap_content"
+        			    android:layout_below="@+id/viewFlipper"
+        			    android:layout_centerHorizontal="true"
+        			    android:layout_marginTop="41dp"
+        			    android:text="@string/button_text" />
+ 
+</RelativeLayout>
